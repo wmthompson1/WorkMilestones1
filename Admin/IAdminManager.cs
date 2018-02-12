@@ -20,7 +20,7 @@ namespace CCTS.TSF.Business
         Task<OperationResult> DeleteDistrict(int id);
         Task<IEnumerable<UserListItem>> GetUsersList(int id, string email);
         Task<OperationResult> DeleteUser(string userName);
-        Task<IEnumerable<Agency>> GetDistrictsCCTS();
+        Task<IEnumerable<Agency>> GetAgenciesCCTS();
 
         //Surveys William Thompson 2/5/18
         IEnumerable<SurveyDTO> GetSurveys();
@@ -30,5 +30,12 @@ namespace CCTS.TSF.Business
         void DeleteSurvey<Survey>(SurveyDTO item) where Survey : class;
         bool SurveySave();
         bool SurveyExists(int SurveyId);
+
+        //SurveyDetail William Thompson 2/12/2018
+        IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails();
+        SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId);
+        void AddSurveyQuestionDetail(SurveyQuestionDetailCreateDTO SurveyQuestionDetail);
+
+
     }
 }

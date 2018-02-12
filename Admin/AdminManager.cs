@@ -58,31 +58,7 @@ namespace CCTS.TSF.Business
 
         public async Task<OperationResult> DeleteUser(string userName) => await Repo.DeleteUser(userName);
 
-        public async Task<IEnumerable<Agency>> GetDistrictsCCTS()
-        {
-            var results = await Repo.GetDistricts();
-            var result = results.ToList();
-
-            result.Add(new Agency
-            {
-                Id = 90,
-                ParentId = 0,
-                AgencyCode = "0",
-                AgencyName = "CCTS",
-                MailAddress = string.Empty,
-                City = "Seattle",
-                ZipCode = string.Empty,
-                SchoolLevelCode = string.Empty,
-                GradeSpan = string.Empty,
-                IsActive = true,
-                AgencyType = "ADMIN",
-                EffectiveDate = new DateTime(2006, 7, 01),
-                EndDate = DateTime.MinValue,
-                AgencySize = string.Empty,
-                Notes = string.Empty
-            });
-            return result.OrderBy(a => a.AgencyName);
-        }
+        public async Task<IEnumerable<Agency>> GetAgenciesCCTS() => Repo.GetAgencies().Result.Where(i => i.Id != 1605).OrderBy(a => a.AgencyName);
 
         //Surveys William Thompson 2/5/18
         public IEnumerable<SurveyDTO> GetSurveys() => Repo.GetSurveys();
@@ -114,5 +90,18 @@ namespace CCTS.TSF.Business
         {
             return (bool)Repo.SurveyExists(SurveyId);
         }
+
+        //SurveyDetail William Thompson 2/12/18
+
+        public IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails() => Repo.GetSurveyQuestionDetails();
+
+        public SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId) => Repo.GetSurveyQuestionDetail(SurveyId);
+
+        public void AddSurveyQuestionDetail (SurveyQuestionDetailCreateDTO item) 
+        {
+            Repo.AddSurveyQuestionDetail(item);
+        }
+
+
     }
 }

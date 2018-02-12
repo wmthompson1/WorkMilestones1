@@ -141,8 +141,9 @@ namespace CCTS.TSF.Repository
 
         public async Task<IEnumerable<Agency>> GetDistricts()
         {
-            var proc = "[dbo].[usp_GetDistricts]";
-            var results = await _context.Agencies.FromSql(proc).AsNoTracking().ToListAsync();
+            var proc = "[dbo].[usp_GetDistricts] @p0";
+            var param = "DISTRICT";
+            var results = await _context.Agencies.FromSql(proc, param).AsNoTracking().ToListAsync();
             return results;
         }
 
@@ -303,5 +304,49 @@ namespace CCTS.TSF.Repository
                 _context.Survey.Remove(surveyToDelete);
 
         }
+
+        public async Task<IEnumerable<Agency>> GetAgencies()
+        {
+            var proc = "[dbo].[usp_GetDistricts] @p0";
+            var param = "all";
+            var results = await _context.Agencies.FromSql(proc, param).AsNoTracking().ToListAsync();
+            return results;
+        }
+
+        //SurveyDetail
+
+        public IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails()
+        {
+            var DTOs = Mapper.Map<IEnumerable<SurveyQuestionDetailDTO>>(_context.SurveyQuestionDetail);
+            return (DTOs);
+
+        }
+
+        public SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId)
+        {
+            var surveyQuestionDetail = _context.SurveyQuestionDetail.Where(p =>
+                p.SurveyId.Equals(SurveyId));
+
+
+            var surveyQuestionDetailDTO = Mapper.Map<SurveyQuestionDetailDTO>(surveyQuestionDetail);
+
+
+            return surveyQuestionDetailDTO;
+        }
+
+        public void AddSurveyQuestionDetail(SurveyQuestionDetailCreateDTO surveyQuestionDetail)
+        {
+
+            var proc = "[test].[usp_SurveyDetail_Add] @p0;";
+            _context.Database
+           .ExecuteSqlCommand(proc, surveyQuestionDetail.SurveyId);
+
+
+            return;
+
+        }
+
+
+
     }
 }

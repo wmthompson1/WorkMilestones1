@@ -15,6 +15,7 @@ namespace CCTS.TSF.Repository
         Task<IEnumerable<ImportError>> GetImportErrors(int id);
         Task<ImportRowDetail> GetImportRowDetail(int id, int rowId);
         Task<IEnumerable<Agency>> GetDistricts();
+        Task<IEnumerable<Agency>> GetAgencies();
         Task<OperationResult> AddDistrict(Agency agency);
         Task<OperationResult> UpdateDistrict(UpdateDistrict updateDistrict);
         Task<OperationResult> DeleteDistrict(int id);
@@ -30,6 +31,16 @@ namespace CCTS.TSF.Repository
         void DeleteSurvey(SurveyDTO Survey);
         bool SurveySave();
         bool SurveyExists(int SurveyId);
+
+        // SurveyDetail
+
+        IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails();
+        SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId);
+        void AddSurveyQuestionDetail(SurveyQuestionDetailCreateDTO SurveyQuestionDetail);
+
+
+
+
 
     }
 }
