@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using Mindscape.Raygun4Net;
 // William Thompson
 using Microsoft.AspNetCore.Cors;
+using System.Linq;
 
 namespace CCTS.TSF.Controllers
 {
@@ -160,12 +161,12 @@ namespace CCTS.TSF.Controllers
             }
         }
 
-        [HttpGet("getDistrictsccts")]
-        public async Task<IActionResult> getDistrictsCCTS()
+        [HttpGet("getAgenciesccts")]
+        public async Task<IActionResult> GetAgenciesCCTS()
         {
             try
             {
-                var results = await _adminManager.GetDistrictsCCTS();
+                var results = await _adminManager.GetAgenciesCCTS();
                 return Ok(results);
             }
             catch (Exception ex)
@@ -276,7 +277,7 @@ namespace CCTS.TSF.Controllers
         {
             try
             {
-                var results =  _adminManager.GetSurveys();
+                var results =  _adminManager.GetSurveys().OrderByDescending(i => i.Id);
                 return Ok(results);
             }
             catch (Exception ex)
@@ -358,7 +359,54 @@ namespace CCTS.TSF.Controllers
 
             return NoContent();
         }
-    // William Thompson snippet ends
+        // William Thompson snippet ends
+
+        // SurveyQuestionDetail William Thompson
+
+        [EnableCors("CorsPolicy")]
+        [HttpGet("surveyQuestionDetails", Name = "GetSurveyQuestionDetails")]
+        public async Task<IActionResult> GetSurveyQuestionDetails()
+        {
+            try
+            {
+                var results = _adminManager.GetSurveyQuestionDetails();
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                await new RaygunClient(_settings.ApiKey).SendInBackground(ex);
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+        [EnableCors("CorsPolicy")]
+        [HttpGet("surveyQuestionDetails/{id}", Name = "GetSurveyQuestionDetail")]
+        public IActionResult Get(int id)
+        {
+            var surveyQuestionDetail = _adminManager.GetSurveyQuestionDetail(id);
+
+            if (surveyQuestionDetail == null) return NotFound();
+
+            return Ok(surveyQuestionDetail);
+        }
+
+        [EnableCors("CorsPolicy")]
+        [HttpPost("surveyQuestionDetails/{id}", Name = "PostSurveyQuestionDetail")]
+        public IActionResult Post([FromBody] SurveyQuestionDetailCreateDTO surveyQuestionDetail)
+
+        {
+
+            if (surveyQuestionDetail == null) return BadRequest();
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            _adminManager.AddSurveyQuestionDetail(surveyQuestionDetail);
+
+            return NoContent();
+
+        }
+
+        // William Thompson snippet ends
+
 
     }
 }
