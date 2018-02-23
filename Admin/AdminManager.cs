@@ -95,12 +95,9 @@ namespace CCTS.TSF.Business
 
         public IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails() => Repo.GetSurveyQuestionDetails();
 
-        public SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId) => Repo.GetSurveyQuestionDetail(SurveyId);
+        public IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetail(int SurveyId) => Repo.GetSurveyQuestionDetail(SurveyId);
 
-        public void AddSurveyQuestionDetail (SurveyQuestionDetailCreateDTO item) 
-        {
-            Repo.AddSurveyQuestionDetail(item);
-        }
+        public async Task<int> AddSurveyQuestionDetail (SurveyDTO item) => await Repo.AddSurveyQuestionDetail(item);
 
 
     }

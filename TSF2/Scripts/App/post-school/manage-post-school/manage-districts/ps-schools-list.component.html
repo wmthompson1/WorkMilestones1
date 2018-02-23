@@ -1,0 +1,119 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <div class="col-md-11">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a [routerLink]="['/ps-landing']">Post-School Survey</a></li>
+                <li><a [routerLink]="['/ps-district-list', AdminAgencyId, leaverYear]">District List</a></li>
+                <li class="active">School List</li>
+            </ol>
+        </div>
+        <div class="col-md-12" style="border-bottom: 1px solid black; border-top: 1px solid black; text-align: center; margin-bottom: 25px;">
+            <h1>{{districtName}}: SURVEY STATUS BY SCHOOL ({{leaverYear}} LEAVERS)</h1>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-body" style="text-align:center">
+                    <h2><b>Important Information</b></h2><br/>
+                    All surveys are due by November 1, 2017.<br/>
+                    Begin making the follow-up phone calls NO EARLIER than June 1, 2017
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="img/laptop-checklist.png" alt="laptop icon" />
+                    </div>
+                    <div class="col-md-9">
+                        <b>Surveys:</b>
+                        <ul>
+                            <li>Click on the "Telephone Interview" to complete the survey</li>
+                            <li><a>Add New Student Survey for a single student</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-3">
+                    <img src="img/folder-check.png" alt="folder icon" />
+                </div>
+                <div class="col-md-9">
+                    <b>Resources:</b>
+                    <ul>
+                        <li><a href="../../../wwwroot/img/post-school-surve-step-by-step.pdf" download>Step-by-Step Survey Guide</a></li>
+                        <li><a href="../../../wwwroot/pdf/post-school-timeline-matrix.pdf" download>Post-School Timeline </a></li>
+                        <li><a href="https://www.seattleu.edu/ccts/post-school-survey--outcomes/post-school-survey-faq/">Post-School Survey FAQ</a></li>
+                        <li><a href="../../../wwwroot/pdf/strategies-for-increasing-response-rates.pdf" download="">Raise Your Response Rate Tips</a></li>
+                        <li><a href="../../../wwwroot/pdf/post-school-student-contact-form.pdf" download>Student Contact Form </a></li>
+                        <li><a href="https://www.seattleu.edu/ccts/post-school-survey--outcomes/">Survey Training Module</a></li>
+                    </ul>
+                </div>
+            </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="col-md-3">
+                    <img src="img/icon-calendar-60.png" alt="calendar icon" />
+                </div>
+                <div class="col-md-9">
+                    <h2><b>Important Information</b></h2>
+                    All surveys are due by November 1, 2017.
+                    Begin making the follow-up phone calls NO EARLIER than June 1, 2017
+                </div>
+            </div>
+        </div> 
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped table-bordered table-hover" style="margin: auto;">
+                        <caption>List of districts and their progress for the leaver year.</caption>
+                        <thead>
+                            <tr>
+                                <th>District</th>
+                                <th>Progress</th>
+                                <th>Contact<br />Rate</th>
+                                <th>Response<br />Rate</th>
+                                <th>Not Started</th>
+                                <th>Started</th>
+                                <th>Finished</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let district of districts">
+                                <tr>
+                                    <td style="text-align: left;">
+                                        <div>
+                                            <span *ngIf="district.schoolName !== 'Totals:'"><a [routerLink]="['/ps-students-list', district.schoolAgencyId, leaverYear, 0, 0, districtId, districtName]">{{district.schoolName}}</a></span>
+                                            <span *ngIf="district.schoolName === 'Totals:'"><b>{{district.schoolName}}</b></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="w3-light-grey w3-round">
+                                            <span class="w3-round w3-container" *ngIf="district.totalCount === 0 && getProgressValue(district.progress) === 100 && district.schoolName !== 'Totals:'" [ngStyle]="getMyStyles(district.progress, district.totalCount)">N/A</span>
+                                            <span class="w3-round w3-container" *ngIf="district.totalCount !== 0 && getProgressValue(district.progress)===100 && district.schoolName !== 'Totals:'" [ngStyle]="getMyStyles(district.progress, district.totalCount)">{{getProgressValue(district.progress)}}%</span>
+                                            <span class="w3-round w3-container" *ngIf="district.totalCount !== 0 && getProgressValue(district.progress)<100 && district.schoolName !== 'Totals:'" [ngStyle]="getMyStyles(district.progress, district.totalCount)">{{getProgressValue(district.progress)}}%</span>
+                                            <span class="w3-round w3-container" *ngIf="district.totalCount === 0 && getProgressValue(district.progress)===0 && district.schoolName !== 'Totals:'" [ngStyle]="getMyStyles(district.progress, district.totalCount)">N/A</span>
+                                            <span class="w3-round w3-container" *ngIf="district.schoolName === 'Totals:'" [ngStyle]="getMyStyles(district.progress, district.totalCount)">{{getProgressValue(district.progress)}}%</span>
+                                        </div>
+                                    </td>
+                                    <td>{{getPercent(district.contactRate)}}%</td>
+                                    <td>{{getPercent(district.responseRate)}}%</td>
+                                    <td>{{district.notStartedCount}}</td>
+                                    <td>{{district.startedCount}}</td>
+                                    <td>{{district.finishedCount}}</td>
+                                    <td>{{district.totalCount}}</td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+
+                    <div class="buttonwrapper" style="margin-top: 50px">
+                        <label for="searchssid" class="control-label">Search By SSID:&nbsp;</label><input type="text" id="searchssid" #searchssid placeholder="Enter SSID Number" /><button style="border: 1px solid black;margin-left: -45px;background-color: transparent;" (click)="navigateToSSID(searchssid.value)">Find</button>
+                        <a style="float: right; margin-right: 25px;" [routerLink]="['/ps-questions']" target="_blank">View Post-School Questions</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

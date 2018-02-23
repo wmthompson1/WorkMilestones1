@@ -1,0 +1,64 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <div class="col-md-11">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li class="active">Submit Help Request</li>
+            </ol>
+        </div> 
+        <div>
+            <h1>{{title}}</h1>
+        </div>
+        <div class="text-content-area" style="margin-left: 20px; width: 96%;">
+            <div class="box-header-tag-secondary" style="text-align: center;">
+                <b class="header-text">Technical Issues</b>
+            </div>
+            <div style="margin-top: 50px; top: 45px">
+                Use this form to report technical issues with the TSF website.
+            </div>
+            <div>
+                <div><b>Location</b>
+                </div>
+                <div style="font-size: small">
+                    Please tell us where the issue occurred.
+                    Examples: "Post-School Survey District School Page," "IEP Review," or "QuIST"
+                </div>
+                <input type="text" [(ngModel)]="location" id="location" name="location" #location1="ngModel"/>
+                <div [hidden]="location1.valid || location1.pristine" class="alert alert-danger">Location is required.</div>
+            </div>
+            <div>
+                <div><b>Description</b>
+                </div>
+                <div style="font-size: small">
+                    Please describe the issue.
+                    What happened?
+                    What were you doing when the problem occurred?
+                    What should have happened instead?
+                </div>
+                <textarea [(ngModel)]="description" style="resize: none;" id="description" name="description" #description1="ngModel"></textarea>
+                <div [hidden]="description1.valid || description1.pristine" class="alert alert-danger">Description is required.</div>
+            </div>
+            <div>
+                <div><b>Device</b>
+                </div>
+                <select [(ngModel)]="device" id="device" name="device" #device1="ngModel">
+                    <option *ngFor="let device of devices" [ngValue]="device.value">{{device.name}}</option>
+                </select>
+                <div [hidden]="device1.valid || device1.pristine" class="alert alert-danger">Device is required.</div>
+            </div>
+            <div>
+                <div><b>Browser</b>
+                </div>
+                <select [(ngModel)]="browser" id="browser" name="browser" #browser1="ngModel">
+                    <option *ngFor="let browser of browsers" [ngValue]="browser.value">{{browser.name}}</option>
+                </select>
+                <div [hidden]="browser1.valid || browser1.pristine" class="alert alert-danger">Browser is required.</div>
+            </div>
+            <div class="btn-group" style="width: 100%;">
+                <button (click)="cancel();">Cancel</button>
+                <button (click)="createTicket();" style="float: right;">Create Ticket</button>
+            </div>
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

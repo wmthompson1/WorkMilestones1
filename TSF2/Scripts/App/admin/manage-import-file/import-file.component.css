@@ -1,0 +1,8 @@
+﻿div.col-md-12 {
+    margin-left: 20px;
+    width: 96%;
+}
+button.btn.btn-sm {
+    float: right;
+    border: 1px solid black;
+}

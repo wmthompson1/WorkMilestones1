@@ -35,12 +35,11 @@ namespace CCTS.TSF.Repository
         // SurveyDetail
 
         IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails();
-        SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId);
-        void AddSurveyQuestionDetail(SurveyQuestionDetailCreateDTO SurveyQuestionDetail);
+        IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetail(int SurveyId);
+        //SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId);
+        Task<int> AddSurveyQuestionDetail(SurveyDTO Survey);
 
-
-
-
+        
 
     }
 }

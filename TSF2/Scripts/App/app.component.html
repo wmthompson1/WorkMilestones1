@@ -1,0 +1,58 @@
+﻿<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsing-navbar">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['home']">{{title}}</a>
+        </div>
+        <div class="collapsed navbar-collapse" id="collapsing-navbar">
+            <img src="/img/logo_noselect.png" alt="TSF logo" style="float: right;" [routerLink]="['home']" />
+            <ul class="nav navbar-nav" *ngIf="checkLoggedIn()"> 
+                <li class="nav-item"><a [routerLink]="['ps-landing']">Post-School Survey</a></li>
+                <li class="nav-item"><a [routerLink]="['/iep-landing']">IEP Review</a></li>
+                <li class="nav-item"><a [routerLink]="['/quist-landing']">QuIST</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>Post-School Reports</li>
+                        <li>IEP Reports</li>
+                        <li>QuIST Reports</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item"><a [routerLink]="['/reset-password']">Change Your Password</a></li>
+                        <li class="nav-item"><a [routerLink]="['/email-reset-password']">Email Reset password</a></li>
+                        <li class="nav-item"><a [routerLink]="['/import-file']">Import Post-School Leavers</a></li>
+                        <li class="nav-item"><a [routerLink]="['/manage-agency-districts']">Manage Agencies</a></li>
+                        <li class="nav-item"><a [routerLink]="['/roles']">Manage Roles</a></li>
+                        <li class="nav-item"><a [routerLink]="['/manage_state_targets']">Manage State Targets</a></li>
+                        <li class="nav-item"><a [routerLink]="['/survey-render']">Manage Surveys</a></li>
+                        <li class="nav-item"><a [routerLink]="['/user-list']">Manage Users</a></li>                        
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Help<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://www.seattleu.edu/ccts/post-school-survey--outcomes/post-school-survey-faq/" target="_blank">View the Post-School Survey FAQ</a></li>
+                        <li><a [routerLink]="['/tsf-faq']">View the TSF FAQ</a></li>
+                        <li><a [routerLink]="['/create-ticket']">Submit a help request</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a [routerLink]="['login']">Login</a></li>
+                <li class="nav-item"><a (click)="logout()">Logout</a></li>
+            </ul>    
+            <ul class="nav navbar-nav" *ngIf="!checkLoggedIn()">                
+                <li class="nav-item"><a [routerLink]="['login']">Login</a></li>                  
+            </ul>
+        </div>
+    </div>
+</nav>
+<div>
+    <router-outlet></router-outlet>
+</div>

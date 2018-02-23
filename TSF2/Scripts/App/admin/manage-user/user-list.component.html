@@ -1,0 +1,39 @@
+﻿<div class="container exercise-content container-fluid" style="height:1000px;">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li class="active">Manage Users</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h1>{{title}}</h1></div>        
+    </div>    
+    <div class="row">
+        <div class="col-md-12">            
+            <kendo-grid [data]="gridData" (add)="addHandler()" (edit)="editHandler($event)" (remove)="removeHandler($event)" [skip]="state.skip" [filterable]="true" [height]="750" [sortable]="{allowUnsort: allowUnsort, mode: 'single'}" [pageSize]="10" [sort]="sort" [scrollable]="'none'" [pageable]="{buttonCount: 5, info: info, type: type, pageSizes: pageSizes, previousNext: previousNext}"
+                        [filter]="state.filter" (sortChange)="sortChange($event)" (dataStateChange)="dataStateChange($event)" (pageChange)="pageChange($event)">
+                <ng-template kendoGridToolbarTemplate>
+                    <div class="k-button k-button-icontext" kendoGridAddCommand style="width:100px;"><span style="float:left;" class="k-icon k-i-add"></span>Add</div>
+                </ng-template>
+                <kendo-grid-column field="district" title="Agency" width="150"></kendo-grid-column>
+                <kendo-grid-column field="fName" title="First Name" width="150"></kendo-grid-column>
+                <kendo-grid-column field="lName" title="Last Name" width="150"></kendo-grid-column>
+                <kendo-grid-column field="email" title="Email" width="200"></kendo-grid-column>                
+                <kendo-grid-column field="userName" title="User Name" width=""></kendo-grid-column>
+                <kendo-grid-command-column title="">
+                    <ng-template kendoGridCellTemplate>
+                        <div kendoGridEditCommand class="k-button" style="border: none;"><span class="k-icon k-i-edit"></span></div>                        
+                    </ng-template>
+                </kendo-grid-command-column>
+                <kendo-grid-command-column title="">
+                    <ng-template kendoGridCellTemplate>
+                        <div kendoGridRemoveCommand class="k-button" style="border: none;"><span class="k-icon k-i-delete"></span></div>
+                    </ng-template>
+                </kendo-grid-command-column>
+            </kendo-grid>
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

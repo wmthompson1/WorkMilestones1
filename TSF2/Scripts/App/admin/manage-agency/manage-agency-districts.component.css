@@ -1,0 +1,40 @@
+﻿.green {
+    color: green;
+    font-size: 24px;
+}
+.grey {
+    font-size: 24px;
+    color: grey;
+}
+.yellow {
+    font-size: 24px;
+    color: yellow;
+}
+img {
+    margin-top: 25px; 
+    float: left;
+    margin-bottom: 20px;
+    padding-right: 25px;
+}
+.header {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    text-align: center;
+    margin-bottom: 25px;
+}
+thead {
+    background: lightblue;
+}
+button.btn.btn-secondary.btn-sm {
+    border: 1px solid black;
+} 
+li {
+    text-align: left;
+}
+.yellow {
+    background-color: yellow;     
+}
+.nonefound {
+    text-align: center;
+}
+

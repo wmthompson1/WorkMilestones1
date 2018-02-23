@@ -1,0 +1,45 @@
+﻿.green {
+    color: green;
+    font-size: 24px;
+}
+.grey {
+    font-size: 24px;
+    color: grey;
+}
+.yellow {
+    font-size: 24px;
+    color: yellow;
+}
+img {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.header {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    text-align: center;
+    margin-bottom: 25px;
+}
+thead {
+    background: lightblue;
+}
+button.btn.btn-secondary.btn-sm {
+    border: 1px solid black;
+}
+li {
+    text-align: left;
+}
+.yellowtd {
+    background-color: yellow;     
+}
+.nonefound {
+    text-align: center;
+}
+li.header1 {
+    border: none;
+    text-align: left;
+}
+li.a.header1 {
+    border: none;
+    margin-left: 100px;
+}

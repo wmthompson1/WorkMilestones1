@@ -1,0 +1,78 @@
+﻿<div class="container exercise-content">
+    <div class="row header">
+        <ol class="breadcrumb">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li><a [routerLink]="['/import-file']">Import Post-School Leavers</a></li>
+            <li><a [routerLink]="['/display-import-errors', id]">View Import Errors</a></li>
+            <li class="active">View Import Row Detail</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="border-bottom: 1px solid black; text-align: center; margin-bottom: 25px; border-top: 1px solid black;">
+            {{title}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped table-hover">
+                <caption>Details for line that errored out in import.</caption>
+                <thead style="background-color: lightblue;">
+                <tr>
+                    <th>SSID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Ethnicity</th>
+                    <th>Exit Status</th>
+                    <th>Gender</th>
+                    <th>Birth Date</th>
+                    <th>Disability</th>
+                    <th>District</th>
+                    <th>High School</th>
+                    <th>School Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{rowDetail.ssid}}</td>
+                    <td>{{rowDetail.fName}}</td>
+                    <td>{{rowDetail.lName}}</td>
+                    <td>{{rowDetail.ethnicity}}</td>
+                    <td>{{rowDetail.exitStatus}}</td>
+                    <td>{{rowDetail.gender}}</td>
+                    <td>{{rowDetail.birthDate}}</td>
+                    <td>{{rowDetail.disability}}</td>
+                    <td>{{rowDetail.dist}}</td>
+                    <td>{{rowDetail.highSchool}}</td>
+                    <td>{{rowDetail.schoolName}}</td>
+                </tr>
+                </tbody>
+                <!--<input type="text" disabled id="SSID" [(ngModel)]="" value="ngModel"/>
+                <label for="fname">First Name</label>
+                <input type="text" disabled id="fname" [(ngModel)]="" value="ngModel"/>
+                <label for="lname">Last Name</label>
+                <input type="text" disabled id="lname" [(ngModel)]="" value="ngModel"/>
+                <label for="ethnicity">Ethnicity</label>
+                <input type="text" disabled id="ethnicity" [(ngModel)]="" value="ngModel"/>
+                <label for="exitstatus">Exit Status</label>
+                <input type="text" disabled id="exitstatus" [(ngModel)]="" value="ngModel"/>
+                <label for="gender">Gender</label>
+                <input type="text" disabled id="gender" [(ngModel)]="" value="ngModel"/>
+                <label for="birthdate">Birth date</label>
+                <input type="text" disabled id="birthdate" [(ngModel)]="" value="ngModel"/>
+                <label for="disability">First Name</label>
+                <input type="text" disabled id="disability" [(ngModel)]="" value="ngModel"/>
+                <label for="district">District</label>
+                <input type="text" disabled id="district" [(ngModel)]="" value="ngModel"/>
+                <label for="highschool">High School</label>
+                <input type="text" disabled id="highschool" [(ngModel)]="" value="ngModel"/>
+                <label for="schoolname">School Name</label>
+                <input type="text" disabled id="schoolname" [(ngModel)]="" value="ngModel"/>-->
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="margin-top: 20px;">
+            <button class="btn btn-primary btn-sm" (click)="back()">Back to List</button>
+        </div>
+    </div>
+</div>

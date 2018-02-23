@@ -1,0 +1,105 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a [routerLink]="['home']">Home</a></li>
+            <li><a [routerLink]="['/ps-landing']">Post-School Survey</a></li>
+            <li class="active">Indicator 14 Definitions</li>
+        </ol>
+    </div>
+    <div class="container header">
+        <div class="row header">
+            <div class="col-md-11"><h1>{{title}}</h1><button class="hidden-print" (click)="doPrint();">Print</button></div></div>        
+    </div>
+    <div class="container">
+        <div class="row background-muted">
+            <div class="col-md-11">
+                <div><h2>Indicator 14 Formulas</h2></div>
+                <div>
+                    <div><h3>14A</h3></div>
+                    <div>Percent engaged in <b>higher education</b></div>
+                </div>
+                <div>
+                    <div><h3>14B</h3></div>
+                    <div>Percent engaged in <b>higher education</b> or <b>competitive employment</b></div>
+                </div>
+                <div>
+                    <div><h3>14C</h3></div>
+                    <div>Percent engaged in <b>higher education</b>, <b>competitive employment</b>, <b>some postsecondary education or training</b>, or <b>some other employment</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11">
+                <table>
+                    <thead>
+                        <tr>
+                            <td class="head_cell">14-1</td>
+                            <td class="head_cell">14-2</td>
+                            <td class="head_cell">14-3</td>
+                            <td class="head_cell">14-4</td>
+                            <td class="head_cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="head_cell">Higher Education</td>
+                            <td class="head_cell">Competitive Employment</td>
+                            <td class="head_cell">Some Other Postsecondary Education or Training</td>
+                            <td class="head_cell">Some Other Employment</td>
+                            <td class="head_cell">Other / Not Engaged</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="1" class="body_cell" style="background:#C44F37;">14A</td>
+                            <td colspan="4"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="body_cell" style="background:#819E3C;">14B</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="body_cell" style="background:#71859B;">14C</td>
+                            <td colspan="1"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="body_cell" style="background:#CCB461;">All Respondents</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11">
+                <div><h2>Indicator 14 Categories</h2></div>
+                <div><p>Youth who are no longer in secondary school, had IEPs in effect at the time they left school, and, within one year of leaving high school:</p></div>
+                <div>
+                    <div><h3>14-1. Higher Education</h3></div>
+                    <div>...had been enrolled full- or part-time in a community college (2 year) program or college/university (4 year) program for at least one complete term.</div>
+                </div>
+                <div>
+                    <div><h3>14-2. Competitive Employment</h3></div>
+                    <div>...had worked for pay at or above minimum wage in a setting with others who are nondisabled, for twenty (20) hours or more a week, for at least ninety (90) days. This includes military employment.</div>
+                </div>
+                <div>
+                    <div><h3>14-3. Some Other Postsecondary Education or Training</h3></div>
+                    <div>...had been enrolled on a full- or part-time basis in an education or training program (e.g., Job Corps, adult education, workforce development program, or vocational technical school which is less than a 2-year program) for at least one complete term.</div>
+                </div>
+                <div>
+                    <div><h3>14-4. Some Other Employment</h3></div>
+                    <div>...had worked for pay or have been self-employed in a setting with others who are nondisabled for a period of at least 90 days at any time in the first year since leaving high school. This includes working in a family business (e.g., farm, store, fishing, ranching, catering services, etc.).</div>
+                </div>
+                <div>
+                    <div><h3>Other / Not Engaged</h3></div>
+                    <div>...could not be categorized under 1, 2, 3, or 4.</div>
+                </div>
+                <div>These categories sum to the total number of respondents.</div>
+            </div>
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

@@ -1,0 +1,107 @@
+﻿.narrow-gutter > [class*='col-'] {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.ribbon {
+    min-height: 100px;
+    height: auto;
+    background-color: #00a3d8;
+    padding: 0px;
+    margin: 0px;
+    box-shadow: 0px 2px 5px #000000;
+    top: auto;
+    width: 100%;
+}
+
+.ribbon-text {
+    position: relative;
+    font-family: Rockwell;
+    font-size: xx-large;
+    color: #ffffff;
+    align-content: center;
+    left: 60px;
+    top: 25px;
+    text-shadow: 2px 2px 7px #000000;
+}
+
+.header-text-box-height {
+    height: 100px;
+}
+
+
+.header-text {
+    font-family: Rockwell;
+    font-size: 16px;
+}
+
+.text-content-area {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 8px #000000;
+}
+
+.box-header-tag-primary {
+    background-color: white;
+    width: 40%;
+    height: 20%;
+    padding: 10px;
+    margin: 0px;
+    margin-left: 10%;
+    text-align: left;
+    vertical-align: middle;
+    position: absolute;
+    top: 0px;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 0px 2px 5px #000000;
+}
+
+.box-header-tag-secondary {
+    background-color: white;
+    width: 50%;
+    padding: 10px;
+    margin: 0px;
+    margin-left: 10%;
+    vertical-align: middle;
+    position: absolute;
+    top: 0px;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 0px 2px 5px #000000;
+}
+
+div.text-content-area > div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    .ribbon {
+        min-height: 80px;
+        height: auto;
+        background-color: #00a3d8;
+        padding: 0px;
+        margin: 0px;
+        box-shadow: 0px 2px 5px #000000;
+        top: auto;
+        width: 100%;
+    }
+
+    .ribbon-text {
+        left: 60px;
+        width: auto;
+        margin: 0px;
+        padding: 0px;
+        font-size: small;
+        max-width: 80%;
+    }
+
+    .header-text-box-height {
+        height: 80px;
+    }
+}

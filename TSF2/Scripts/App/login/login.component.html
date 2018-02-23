@@ -1,0 +1,68 @@
+﻿<div class="container container-fluid exercise-content">
+    <div class="row">
+            <div class="col-md-12" >
+                <ol class="breadcrumb" style="background-color: white;">
+                    <li class="active">Login</li>                    
+                </ol>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-md-12" style="border-top: 1px solid black; border-bottom: 1px solid black;"><h1 class="form-login-heading">{{title}}</h1></div>
+        <div class="alert alert-danger" role="alert" *ngIf="loginError">
+            <strong>Warning:</strong> Username or Password mismatch
+        </div>
+    </div>
+    <!--<div class="row">        
+    </div>-->
+    <div class="row">
+        <div class="col-md-5">
+            <form class="form-login" [formGroup]="loginForm"
+                  (submit)="performLogin($event)">
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="username">Email Address:&nbsp;</label>
+                    <input formControlName="username" type="text" class="form-control" style="width: 100%;"
+                           placeholder="Username" id="username" required autofocus />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:&nbsp;</label>
+                    <input formControlName="password" type="password" class="formcontrol" style="width: 100%;height: 45px;"
+                           placeholder="Password" id="password" required />
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="remember" value="remember-me">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group"><button class="btn btn-sm btn-primary" type="submit">Sign in</button></div>
+                <div><a style="margin-left: 17px;" [routerLink]="['/email-reset-password']">Reset your password</a></div>
+            </form>
+        </div>    
+            <div class="col-md-6" style="border: 1px solid black; margin: 20px;">
+                <div><h2 style="text-align: center;"><u>Important Information</u></h2></div>
+                <div>
+                    The Transition System Framework (TSF) is a platform developed and maintained by the Center for Change in Transition Services.  You must be employed by a school, district, or ESD in
+                    the state of Washington to receive access to the TSF. For more information please visit the <a href="https://www.seattleu.edu/ccts/" target="_blank">Center for  Change in Transition Services</a> website.
+                    <br />
+                    If you require access to the TSF, please email <a href="mailto:ccts@seattleu.edu">ccts@seattleu.edu</a> with the followingn information, or have your district administrator provide acccess:
+                    <ul>
+                        <li>First Name</li>
+                        <li>Last Name</li>
+                        <li>E-Mail address</li>
+                        <li>School(s) you will need access to</li>
+                        <li>
+                            Which components of the TSF you will need access to:
+                            <ul>
+                                <li>Transition IEP Review (Indicator 13)</li>
+                                <li>Post-School Survey (Indicator 14)</li>
+                                <li>QuIST</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+        </div>      
+    <tsf-footer></tsf-footer>
+</div>

@@ -1,0 +1,51 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['home']">Home</a></li>
+                <li><a [routerLink]="['/manage_state_targets']">Manage State Targets</a></li>
+                <li class="active">Edit State Target</li>
+            </ol>
+        </div>
+        <div class="col-md-12" style="border-bottom: 1px solid black; border-top: 1px solid black; text-align: center; margin-bottom: 25px;">
+            <h1>{{title}}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form #targetForm="ngForm">
+                    <div class="form-group">
+                        <label for="targetValue">Target Value:</label>
+                        <input type="text" id="targetValue" required [(ngModel)]="model.targetValue" class="form-control" name="targetValue" #targetValue1="ngModel" />
+                        <div [hidden]="targetValue1.valid || model.targetValue.pristine" class="alert alert-danger">Target Value is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="schoolYear">School Year:</label>
+                        <select class="form-control" id="schoolYear" required [(ngModel)]="model.schoolYear" name="schoolYear" #schoolYear1="ngModel">
+                            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                        </select>
+                        <div [hidden]="schoolYear1.valid || model.schoolYear.pristine" class="alert alert-danger">School Year is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="targetName">Target Name:</label>
+                        <select class="form-control" id="targetName" required [(ngModel)]="model.targetName" name="targetName" #targetName1="ngModel">
+                            <option *ngFor="let option of options" [value]="option">{{option}}</option>
+                        </select>
+                        <div [hidden]="targetName1.valid || model.targetName.pristine" class="alert alert-danger">Target Name is required.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="targetType">Target Type:</label>
+                        <select class="form-control" id="targetType" required [(ngModel)]="model.targetType" name="targetType" #targetType1="ngModel">
+                            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+                        </select>
+                        <div [hidden]="targetType1.valid || model.targetType.pristine" class="alert alert-danger">Target Type is required.</div>
+                    </div>
+                    <div class="btn-group" style="width: 100%;" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-success" (click)="submit()">Submit</button>
+                        <button type="submit" class="btn btn-success" style="float: right;" (click)="cancel()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

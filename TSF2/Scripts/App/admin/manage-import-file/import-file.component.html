@@ -1,0 +1,52 @@
+﻿<div class="container exercise-content">
+    <div class="row header">
+        <ol class="breadcrumb">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li class="active">Import Post-School Leaves</li>
+        </ol>
+    </div>
+    <div class="row header" >
+        <div class="col-md-12" style="border-top: 1px solid black; border-bottom: 1px solid black;"><h1>{{title}}</h1></div>
+    </div>
+    <div class="row" style="margin-left: 20px;">
+        <h2>Import File</h2>
+        <h3>To import a CSV file click on the 'Choose Files' button below and browse to the file you want to import.</h3>
+    </div>
+    <div class="row" style="margin: 20px;">
+        <form enctype="multipart/form-data">
+            <!--<button class="btn btn-sm" (click)="selectFiles()">Select Files...</button> [(ngModel)]="Model.datasourcelistdata"-->
+            <input type="file" name="datasource_upload" id="datasource_upload" accept=".xlsx,.xls,.csv" ngf-max-size="30020MB" fd-input (change)="selectFiles($event)" multiple="false" />
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-bordered table-hover">
+                <caption>List of previoiusly imported files.</caption>
+                <thead style="background-color: lightblue;">
+                    <tr><th colspan="6"><span style="float: right;"><a [routerLink]="['/import-file']">Refresh</a></span></th></tr>
+                    <tr>
+                        <th>Date</th>
+                        <th>File Name</th>
+                        <th># Records</th>
+                        <th>Status</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let import of imports">
+                        <tr>
+                            <td>{{import.createDate}}</td>
+                            <td>{{import.originalName}}</td>
+                            <td>{{import.count}}</td>
+                            <td>{{import.status}}</td>
+                            <td><button class="btn btn-primary" style="background-color: lightblue;" (click)="displayErrors(import.id)" type="submit">Errors&nbsp;<span class="badge">{{import.errorsFoundCount}}</span></button></td>
+                            <td><input (click)="deleteImport(import.Id)" style="background-color: lightblue;" class="btn btn-primary" type="button" value="Delete" /></td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

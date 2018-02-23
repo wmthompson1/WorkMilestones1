@@ -1,6 +1,6 @@
 
 git add -A
-git commit -m "Friday synch"
+git commit -m "Friday 2/23 synch"
 :: git push -u origin master
 :: git push https://github.com/wmthompson1/seed3.git 
 :: to force use -f

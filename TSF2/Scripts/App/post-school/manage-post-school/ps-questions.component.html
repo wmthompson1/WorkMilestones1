@@ -1,0 +1,212 @@
+﻿<div  class="container exercise-content">
+    <div class="row">
+        <ol class="breadcrumb hidden-print">
+            <li><a [routerLink]="['home']">Home</a></li>
+            <li><a [routerLink]="['/ps-landing']">Post-School Survey</a></li>
+            <li class="active">Post-School Questions</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="border: none;">
+            <h1>{{title}}</h1>
+            <div>
+                <h2>Please note that this list of questions is provided for informational purposes only.  You are still required to fill out the survey on the Transition Systemic Framework. Surveys mailed to CCTS will not be accepted.</h2>
+            </div>
+            <div class="hidden-print"><input type="button" value="Print" (click)="print()" /></div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div style="margin-left: 20px;"><i>Questions annotated with *** may not be visible, depending on your response to other questions</i><button class="hidden-print" style="float: right;" (click)="close()">Close This Tab</button></div>
+        <div>
+            <h2>Interviewer Name</h2>
+            <ul>
+                <li>Name of Interviewer</li>
+                <li>
+                    Interviewer Position
+                    <ol>
+                        <li>Teacher</li>
+                        <li>Administrator</li>
+                        <li>Paraprofessional/Educational Assistant</li>
+                        <li>Administrative Assistant</li>
+                        <li>Transition/Education specialist</li>
+                        <li>School Psychologist</li>
+                        <li>School Counselor</li>
+                        <li>Other</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-12" >
+        <h2>Contact Attempts</h2>
+        <ul>
+            <li>C1 Contact Attempt 1 date and time</li>
+            <li>C2 Contact Attempt 2 date and time ***</li>
+            <li>C3 Contact Attempt 3 date and time ***</li>
+            <li>Telephone interview status
+                <ol>
+                    <li>Check here to complete survey</li>
+                    <li>Check here if survey could not be completed</li>
+                </ol>
+            </li>
+            <li>(If telephone interview not completed) Select best reason (select only one)***
+                <ol>
+                    <li>Poor or no contact information</li>
+                    <li>Unable to reach former student OR family after 3 attempts</li>
+                    <li>Former student declined to be interviewed</li>
+                    <li>Family member declined to be interviewed</li>
+                    <li>Other</li>
+                </ol>
+            </li>
+            <li>Person Interviewed
+                <ol>
+                    <li>Former student</li>
+                    <li>Parent/guardian</li>
+                    <li>Family member (brother, sister, grandparent, etc.)</li>
+                    <li>Caregiver</li>
+                    <li>Other</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <h2>Leaver Employment</h2>
+        <ul>
+            <li>
+                Did you work within 1 year of leaving high school?
+                <ol>
+                    <li>Yes</li>
+                    <li>No</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>
+                Where were you working at that time? (Select the best answer that describes the type of employment.)***
+                <ol>
+                    <li>Integrated competitive employment (For a definition of competitive employment click here)</li>
+                    <li>Military</li>
+                    <li>Supported employment (paid work in community with support services)</li>
+                    <li>Don't know</li>
+                    <li>Employment settings where most workers have disabilities</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>
+                Did you work at least 90 days within one year of leaving high school? (Select only one answer.)***
+                <ol>
+                    <li>Yes</li>
+                    <li>No</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>
+                How many hours a week did you work on average? If multiple jobs or hours vary, select the closest average. Select only one answer.***
+                <ol>
+                    <li>10 hours or less</li>
+                    <li>11-19 hours</li>
+                    <li>20-34 hours</li>
+                    <li>35 or more (full time)</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>
+                What was your hourly wage? (If multiple jobs or hours vary, estimate the closest average amount.) ***
+                <ol>
+                    <li>At or above minimum wage</li>
+                    <li>Less than minimum wage</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <h2>Leaver Education</h2>
+        <ul>
+            <li>
+                Did you attend any type of school or training program within 1 year of leaving high school?
+                <ol>
+                    <li>Yes</li>
+                    <li>No</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>School Name (if applicable)</li>
+            <li>
+                What type of school or training program did you attend? ***
+                <ol>
+                    <li>University/4-year college</li>
+                    <li>Community/2-year college</li>
+                    <li>Vocational/technical college</li>
+                    <li>College degree program, but don't know which one</li>
+                    <li>Certificate program at voc/tech school or community college (less than 2 years)</li>
+                    <li>Apprenticeship</li>
+                    <li>Short-term education/employment training</li>
+                    <li>Adult/continuing education</li>
+                    <li>GED</li>
+                    <li>Job Corps</li>
+                    <li>Education or training program, but don't know which program</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>
+                Were you enrolled full-time or part-time ***
+                <ol>
+                    <li>Full-time</li>
+                    <li>Part-time</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>
+                Were you enrolled for at least one complete term? ***
+                <ol>
+                    <li>Yes</li>
+                    <li>No</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <h2>Service Agencies</h2>
+        <ul>
+            <li>
+                Did you contact an adult service agency, such as Division of Vocational Rehabilitation, Division of Developmental Disabilities, Disability Support Services, WorkSource, a mental health provider, Job Corps, or other agency?
+                <ol>
+                    <li>Yes</li>
+                    <li>No</li>
+                    <li>Don't know</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+            <li>
+                If YES, which adult service agencies were contacted ***
+                <ol>
+                    <li>DVR (Division of Vocational Rehabillitation)</li>
+                    <li>DDD (Division of Developmental Disabilities)</li>
+                    <li>DSS (Disability Support Services)</li>
+                    <li>Mental health provider</li>
+                    <li>WorkSource</li>
+                    <li>Job Corps</li>
+                    <li>WA State Department of Services for the Blind</li>
+                    <li>Other (Vendor & providers that would be an adult service agency</li>
+                    <li>Don know which agency</li>
+                    <li>Declined to answer</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <h2>Comments</h2>
+        <ul>
+            <li>Comments</li>
+        </ul>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

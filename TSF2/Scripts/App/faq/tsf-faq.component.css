@@ -1,0 +1,22 @@
+﻿h2 {
+    text-align: center;
+    display: block;
+    border: 5px solid;
+    text-shadow: none;
+}
+
+h2#gen.iep {
+    border: 5px solid green;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+h2#postschool.ps {
+    border: 5px solid blue;
+}
+
+h2#quist.quist {
+    border: 5px solid red;
+}

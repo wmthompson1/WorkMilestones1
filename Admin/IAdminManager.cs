@@ -32,9 +32,10 @@ namespace CCTS.TSF.Business
         bool SurveyExists(int SurveyId);
 
         //SurveyDetail William Thompson 2/12/2018
+        //NOTE: detail post uses survey dto
         IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails();
-        SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId);
-        void AddSurveyQuestionDetail(SurveyQuestionDetailCreateDTO SurveyQuestionDetail);
+        IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetail(int SurveyId);
+        Task<int> AddSurveyQuestionDetail(SurveyDTO Survey);
 
 
     }

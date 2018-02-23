@@ -1,0 +1,38 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li class="active">Post-School Survey</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="container header">
+            <div class="row header">
+                <div class="col-md-11"><h1>{{title}}</h1></div>
+                <div class="col-md-12">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" style="float: left;background-color: lightgreen;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span id="selected">{{text}}</span><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li *ngFor="let year of schoolYears"><a (click)="setSchoolYear(year)">{{year}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-right: 25px;float: right; background-color: lightblue;">
+                        <span id="selected1">{{schoolName}}</span><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li *ngFor="let school of schools"><a (click)="setSchool(school)">{{school.agencyName}}</a></li>
+                    </ul>
+                </div>-->
+            </div>
+            <div><a [routerLink]="['/ps-district-list', adminAgencyId, schoolYear]">Districts List</a></div>
+            <div><a [routerLink]="['/indicator14-definitions']">Indicator 14 Defnitions</a></div>
+            <div><a [routerLink]="['/ps-questions']" target="_blank">Post-School Questions</a></div>
+            <!--<div><a [routerLink]="['/post-school/ps-students-list', schoolCode, schoolYear, 0, 0]">Students List</a></div>-->
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

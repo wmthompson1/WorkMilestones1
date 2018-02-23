@@ -1,0 +1,75 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a [routerLink]="['/manage-agency-districts']">District Manager</a></li>
+                <li class="active">Add New District Agency</li>
+            </ol>
+        </div>
+        <div class="col-md-12" style="border-bottom: 1px solid black; border-top: 1px solid black; text-align: center; margin-bottom: 25px;">
+            <h1>{{title}}</h1>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form #agencyForm="ngForm" >
+                        <div class="form-group">
+                            <label for="agencyCode">Code: </label>
+                            <input type="number" min="0" id="agencyCode" required [(ngModel)]="model.agencyCode" class="form-control" name="agencyCode " #agencyCode1="ngModel"/>
+                            <div *ngIf="agencyCode1.invalid && (agencyCode1.dirty || agencyCode1.touched)"
+                                 class="alert alert-danger">
+                                <div *ngIf="agencyCode1.errors.required">
+                                    Code is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="agencyName">Name: </label>
+                            <input type="text" id="agencyName" required [(ngModel)]="model.agencyName"  class="form-control" name="agencyName" #agencyName1="ngModel"/>
+                            <div *ngIf="agencyName1.invalid && (agencyName1.dirty || agencyName1.touched)"
+                                 class="alert alert-danger">
+                                <div *ngIf="agencyName1.errors.required">
+                                    Name field is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="parentId">ESD: </label>
+                            <select class="form-control" id="parentId" required [(ngModel)]="model.parentId" name="parentId" #parentId1="ngModel">
+                                <option *ngFor="let esd of esds" [value]="esd.id">{{esd.name}}</option>
+                            </select>
+                            <div *ngIf="parentId1.invalid && (parentId1.dirty || parentId1.touched)"
+                                 class="alert alert-danger">
+                                <div *ngIf="parentId1.errors.required">
+                                    ESD field is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="countyName">County: </label>
+                            <input type="text" id="countyName" required [(ngModel)]="model.countyName" class="form-control" name="countyName" #countyName1="ngModel" />
+                            <div *ngIf="countyName1.invalid && (countyName1.dirty || countyName1.touched)"
+                                 class="alert alert-danger">
+                                <div *ngIf="countyName1.errors.required">
+                                    ESD field is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="isActive">Active: </label>
+                            <input type="checkbox"  id="isActive" required [(ngModel)]="isActive" class="form-control" name="isActive" #isActive1="ngModel" />                      
+                        </div>
+                        <div class="btn-group" style="width: 100%;" role="group" aria-label="Basic example">
+                            <button type="submit" *ngIf="(agencyCode1.invalid || agencyCode1.pristine) || (agencyName1.invalid || agencyName1.prestine) || (parentId1.invalid || parentId1.prestine)
+                                    || (countyName1.invalid || countyName1.pristine)"  
+                                    class="btn btn-success disabled">Submit</button>
+                            <button type="submit" *ngIf="agencyCode1.valid && agencyName1.valid && parentId1.valid && countyName1.valid"
+                                    class="btn btn-success" (click)="submit()">Submit</button>
+                            <button type="submit" class="btn btn-success" style="float: right;" (click)="cancel()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <tsf-footer></tsf-footer>
+</div>

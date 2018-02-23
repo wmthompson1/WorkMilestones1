@@ -1,0 +1,45 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a [routerLink]="['/import-file']">Import Post-School Leavers</a></li>
+                <li class="active">View Import Errors</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="border-bottom: 1px solid black; text-align: center; margin-bottom: 25px; border-top: 1px solid black;">
+            <h1>{{title}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div style="text-align: right;"><a [routerLink]="['/import-file']">Click here to return to log view</a></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped table-hover">
+                <caption>List of rows from batch import that failed.</caption>
+                <thead style="background-color: lightblue;">
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Row</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let importError of importErrors">
+                        <tr>
+                            <td><a [routerLink]="['/import-row-detail', id, importError.rowId]">View</a></td>
+                            <td>{{importError.rowId}}</td>
+                            <td>{{importError.comments}}</td>
+                        </tr>
+                    </ng-container>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

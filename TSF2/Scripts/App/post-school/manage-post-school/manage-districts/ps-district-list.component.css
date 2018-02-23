@@ -1,0 +1,45 @@
+﻿li{
+    text-align: center;
+}
+td{
+    text-align: center;
+}
+th{
+    background: lightblue;
+}
+table{
+    width: 100%;
+}
+.rounded-container {
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.background-white {
+    background-color: #FFFFFF;
+}
+input#searchssid:focus {
+    background-color: yellow;
+}
+.buttonwrapper{
+    display: inline-block;
+    width: 100%
+}
+input{
+    background-color: transparent;
+    border: 2px solid black;
+}
+label {
+    margin-left: 25px;
+}
+input#searchssid{
+    width: 200px;
+}
+caption{
+    margin-left: 20px;
+}
+.submitbutton {
+    margin-left: -45px;
+    background-color: transparent;    
+}

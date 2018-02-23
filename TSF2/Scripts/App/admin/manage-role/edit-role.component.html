@@ -1,0 +1,31 @@
+﻿<div class="container exercise-content">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a [routerLink]="['/roles']">Roles</a></li>
+                <li class="active">Edit</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h1>{{title}}</h1></div>
+    </div>
+    <div class="row">
+        <form class="form-role" [formGroup]="editRoleForm" (submit)="onSubmit()">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="name">Enter New Role Name:&nbsp;</label>
+                    <input formControlName="name" type="text" class="form-control" placeholder="New Role Name" autofocus id="name" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-sm" value="Update" />
+                    <button type="submit" class="btn btn-primary btn-sm" (click)="cancel()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

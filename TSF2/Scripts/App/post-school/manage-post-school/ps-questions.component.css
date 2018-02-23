@@ -1,0 +1,10 @@
+﻿.exercise-content {
+    padding-top: 25px;
+}
+h2{
+    text-align: center;
+    font-weight: bold;
+}
+div.col-md-12{
+    border: 1px solid black;
+}

@@ -317,33 +317,34 @@ namespace CCTS.TSF.Repository
 
         public IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetails()
         {
-            var DTOs = Mapper.Map<IEnumerable<SurveyQuestionDetailDTO>>(_context.SurveyQuestionDetail);
+            var DTOs =  Mapper.Map<IEnumerable<SurveyQuestionDetailDTO>>(_context.SurveyQuestionDetail);
             return (DTOs);
 
         }
 
-        public SurveyQuestionDetailDTO GetSurveyQuestionDetail(int SurveyId)
+        public IEnumerable<SurveyQuestionDetailDTO> GetSurveyQuestionDetail(int SurveyId)
         {
-            var surveyQuestionDetail = _context.SurveyQuestionDetail.Where(p =>
-                p.SurveyId.Equals(SurveyId));
 
+            var surveyQuestionDetail =   _context.SurveyQuestionDetail
+                .FromSql("Select * from test.SurveyQuestionDetail")
+                .Where(p => p.SurveyId.Equals(SurveyId));
 
-            var surveyQuestionDetailDTO = Mapper.Map<SurveyQuestionDetailDTO>(surveyQuestionDetail);
+            var DTOs = Mapper.Map<IEnumerable<SurveyQuestionDetailDTO>>(surveyQuestionDetail);
 
+            return DTOs;
 
-            return surveyQuestionDetailDTO;
         }
 
-        public void AddSurveyQuestionDetail(SurveyQuestionDetailCreateDTO surveyQuestionDetail)
+        //note that SurveyDTO is being passed in for HTTP POST
+
+        public async Task<int> AddSurveyQuestionDetail(SurveyDTO survey)
         {
 
             var proc = "[test].[usp_SurveyDetail_Add] @p0;";
-            _context.Database
-           .ExecuteSqlCommand(proc, surveyQuestionDetail.SurveyId);
+            var results = await _context.Database
+                .ExecuteSqlCommandAsync(proc, survey.Id);
 
-
-            return;
-
+            return results;
         }
 
 

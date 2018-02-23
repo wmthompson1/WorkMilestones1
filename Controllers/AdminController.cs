@@ -13,6 +13,7 @@ using System.Linq;
 
 namespace CCTS.TSF.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
     public class AdminController : Controller
     {
@@ -391,15 +392,15 @@ namespace CCTS.TSF.Controllers
         }
 
         [EnableCors("CorsPolicy")]
-        [HttpPost("surveyQuestionDetails/{id}", Name = "PostSurveyQuestionDetail")]
-        public IActionResult Post([FromBody] SurveyQuestionDetailCreateDTO surveyQuestionDetail)
+        [HttpPost("surveyQuestionDetails", Name = "PostSurveyQuestionDetail")]
+        public IActionResult Post([FromBody] SurveyDTO survey)
 
         {
 
-            if (surveyQuestionDetail == null) return BadRequest();
+            if (survey == null) return BadRequest();
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            _adminManager.AddSurveyQuestionDetail(surveyQuestionDetail);
+            _adminManager.AddSurveyQuestionDetail(survey);
 
             return NoContent();
 

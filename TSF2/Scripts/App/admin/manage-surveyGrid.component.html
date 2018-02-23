@@ -1,0 +1,50 @@
+﻿<div class="container exercise-content container-fluid" style="height:1000px;">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li class="active">Manage Users</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h1>{{title}}</h1></div>
+        <!--<div class="col-md-3" style="margin-bottom: 20px;"><button class="btn btn-primary btn-sm" (click)="addUser()" style="float: right;">Add User</button></div>-->
+    </div>
+    <!--<div *ngFor="let data of gridData.data">{{data.email}}</div><div>Fuckyou!</div>-->
+    <div class="row">
+        <div class="col-md-12">
+            <!--(add)="addHandler($event)"--> 
+            <kendo-grid [data]="gridData" (edit)="editHandler($event)" (remove)="removeHandler($event)" [skip]="state.skip" [filterable]="true" [height]="750" [sortable]="{allowUnsort: allowUnsort, mode: 'single'}" [pageSize]="10" [sort]="sort" [scrollable]="'none'" [pageable]="{buttonCount: 5, info: info, type: type, pageSizes: pageSizes, previousNext: previousNext}"
+                        [filter]="state.filter" (sortChange)="sortChange($event)" (dataStateChange)="dataStateChange($event)" (pageChange)="pageChange($event)">
+                <ng-template kendoGridToolbarTemplate>
+                    <button class="btn btn-primary btn-sm" (click)="addHandler()">Add</button>
+                </ng-template>
+                <kendo-grid-column field="agencyName" title="Agency" width="150"></kendo-grid-column>
+                <kendo-grid-column field="firstName" title="First Name" width="150"></kendo-grid-column>
+                <kendo-grid-column field="lastName" title="Last Name" width="150"></kendo-grid-column>
+                <kendo-grid-column field="email" title="Email" width="200"></kendo-grid-column>
+                <!--<kendo-grid-column field="isAbleToAddSurveys" title="Add Surveys" width="">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <input type="checkbox" [checked]="dataItem.isAbleToAddSurveys" disabled />
+                    </ng-template>
+                </kendo-grid-column>-->
+                <!--<kendo-grid-column field="isApproved" title="Approved" width="">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <input type="checkbox" [checked]="dataItem.isApproved" disabled />
+                    </ng-template>
+                </kendo-grid-column>-->
+                <!--<kendo-grid-column field="dataManager" title="Data Manager" width=""></kendo-grid-column>-->
+                <!--<kendo-grid-column field="i13Role" title="I-13 Lead" width=""></kendo-grid-column>-->
+                <kendo-grid-column field="lastLoginDate" title="Last Login" width="" [filterable]="false"></kendo-grid-column>
+                <kendo-grid-command-column title="">
+                    <ng-template kendoGridCellTemplate>
+                        <button kendoGridEditCommand >Edit</button>
+                        <button kendoGridRemoveCommand>Delete</button>
+                    </ng-template>
+                </kendo-grid-command-column>
+            </kendo-grid>
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

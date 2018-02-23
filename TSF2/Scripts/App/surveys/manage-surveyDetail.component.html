@@ -1,0 +1,57 @@
+<div class="container exercise-content container-fluid" style="height:1000px;">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/survey-render']">Home</a></li>
+                <li class="active">Manage Survey Details ver 20180213.1337 </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h1>{{title}}</h1></div>
+        <!--<div class="col-md-3" style="margin-bottom: 20px;"><button class="btn btn-primary btn-sm" (click)="addUser()" style="float: right;">Add User</button></div>-->
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <!--(add)="addHandler($event)"-->
+            <kendo-grid
+            [kendoGridBinding]="gridData"
+            (edit)="editExisting($event)" 
+            [pageSize]="10"
+            [pageable]="true"
+            [sortable]="true"
+            [filterable]="true"
+            [groupable]="{ showFooter: false,
+                           showHeader: true,
+                           emptyText: 'To group by a column, drag the column header here.' }"
+           
+            [height]="750">
+
+                <kendo-grid-column field="surveyId" title="ID" width="50" [filterable]="false" width = "120" >
+
+                </kendo-grid-column>
+                <kendo-grid-column field="surveyName" title="Survey Name" width="125">
+                </kendo-grid-column>
+                <kendo-grid-column field="pageName" title="Page Name" width="125">
+                </kendo-grid-column>
+                <kendo-grid-column field="questionNumberText" title="Question #" width="150">
+                </kendo-grid-column>
+                <kendo-grid-column field="instructions" title="Instructions" width="175">
+                </kendo-grid-column>
+                <kendo-grid-column field="pageSortId" title="Page Sort Id" width="125">
+
+                </kendo-grid-column>
+        
+                <!-- <kendo-grid-command-column title="">
+                <ng-template kendoGridCellTemplate>
+                    <div kendoGridAddCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>                        
+                </ng-template>
+                </kendo-grid-command-column> -->
+        
+            </kendo-grid>
+
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>
