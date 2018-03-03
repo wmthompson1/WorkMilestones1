@@ -61,7 +61,8 @@ namespace AspNetCoreWebAPI.Services
                 // case 2
                 _db.SurveyQuestion
                     .Include(d => d.QItem)
-                    .FirstOrDefault(p => p.SurveyId.Equals(surveyId))
+                    //.FirstOrDefault(p => p.SurveyId.Equals(surveyId))
+                    .ToList()
                     ;
 
             }
