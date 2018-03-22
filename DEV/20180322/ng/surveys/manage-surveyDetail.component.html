@@ -1,0 +1,51 @@
+﻿<div class="container exercise-content container-fluid" style="height:1000px;">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a [routerLink]="['/survey-render']">Manage Surveys</a></li>
+                <li class="active">Manage Survey Details</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><h1>{{title}}</h1></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <!--(edit)="addHandler($event)"-->
+
+            <kendo-grid [data]="gridData" (add)="addHandler()" (edit)="addExisting($event)" (remove)="removeHandler($event)" [skip]="state.skip" [filterable]="true" [height]="750" [sortable]="{allowUnsort: allowUnsort, mode: 'single'}" [pageSize]="10" [sort]="sort" [scrollable]="'none'" [pageable]="{buttonCount: 5, info: info, type: type, pageSizes: pageSizes, previousNext: previousNext}"
+                        [filter]="state.filter" (sortChange)="sortChange($event)" (dataStateChange)="dataStateChange($event)" (pageChange)="pageChange($event)">
+
+
+                <kendo-grid-column field="surveyId" title="ID" width="50" [filterable]="false" width="50">
+
+                </kendo-grid-column>
+
+                <kendo-grid-command-column title="" width=50>
+                    <ng-template kendoGridCellTemplate>
+                        <!-- <div kendoGridEditCommand class="k-button" style="border: none;"><span class="k-icon k-i-edit"></span></div>  -->
+                        <div kendoGridEditCommand class="k-button" style="border: none;"><span class="k-icon k-i-plus"></span></div>
+                    </ng-template>
+                </kendo-grid-command-column>
+
+
+                <kendo-grid-column field="surveyName" title="Survey Name" width="50">
+                </kendo-grid-column>
+                <kendo-grid-column field="pageName" title="Page Name" width="75">
+                </kendo-grid-column>
+                <kendo-grid-column field="questionNumberText" title="Question #" width="50" [filterable]="false">
+                </kendo-grid-column>
+                <kendo-grid-column field="instructions" title="Instructions" width="100">
+                </kendo-grid-column>
+                <kendo-grid-column field="pageSortId" title="Page Sort Id" width="50" [filterable]="false">
+                </kendo-grid-column>
+
+            </kendo-grid>
+
+        </div>
+    </div>
+    <tsf-footer></tsf-footer>
+</div>

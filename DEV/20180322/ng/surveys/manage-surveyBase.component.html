@@ -1,0 +1,123 @@
+
+<style type="text/css">
+    .bs-listing{
+    	margin: 20px;
+    }
+</style>
+
+<div class="container exercise-content">
+    <div class="row">
+       <div class="col-md-12">
+           <ol class="breadcrumb">
+               <li><a [routerLink]="['/home']">Home</a></li>
+               <li><a [routerLink]="['/survey-render']">Manage Surveys</a></li>
+               <li class="active">Survey Copy</li>
+           </ol>
+        </div>
+        <div class="col-md-12" style="border-bottom: 1px solid black; border-top: 1px solid black; text-align: center; margin-bottom: 25px;">
+           <h1>SURVEY COPY</h1>
+        </div>
+                <div class="bs-listing">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    <strong><p style="font-size:16px" >Select a survey for the new year. </p></strong>
+                                    <p>&nbsp;</p>
+                            </div>
+                            <div class="panel-body">
+                                    <em>Current surveys are indicated below, as having been copied for the current year.</em>
+                                    <p></p>
+                                    <p></p>
+                            </div>
+                            <div>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <div><p></p></div>
+                            <div>
+                                    <table class="table table-bordered">
+                                            <thead>
+                                                    <tr>
+                                                        <th class="col-md-1">                                           
+                                                        </th>
+                    
+                                                        <th class="col-md-10"> 
+                                                                <span style="font-size:16px">Survey 
+                                                                    </span>
+                                                        </th>
+                                                           <th class="col-md-1">   
+                                                            <span class="badge">last leaver year</span>                                            
+                                                            </th>
+                                                    </tr>
+                                                </thead>
+                                    </table>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                            </div>
+
+                            <div class="col-md-12" class="list-group">
+                                <table class="table table-bordered table-hover" >
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1">                                           
+                                            </th>
+                                            <th class="col-md-7">                                           
+                                            </th>
+                                            <th class="col-md-2">                                           
+                                                </th>
+                                                 <!-- column 4 info -->
+                                                <th class="col-md-1">                                           
+                                                    </th>
+                                                <!-- column 5 if -->
+                                                <th class="col-md-1">                                           
+                                                </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+										<ng-container *ngFor="let base of surveyBase">
+                                        <tr>
+                                            <td class="col-md-1" class="text-muted">
+                                                    {{base.id}}
+                                            </td>
+                                            <td>
+                                                <!-- surveyFormEdit -->
+                                                    <a [routerLink]="['/surveyFormEdit',base.id]" class="col-md-7" >{{base.name}} 
+                                                                <div *ngIf="!base.isCurrent; ">
+                                                                        <b><span class="badge">{{base.leaverYear}}</span></b>
+                                                                </div>
+                                                    </a>
+                                            </td>
+                                            <td class="col-md-2">
+                                                    &nbsp; {{base.surveyTypeCode}}
+                                            </td>
+                                            <!-- column 4 info -->
+                                            <td class="col-md-1">
+                                               
+                                            </td>
+
+                                            <!-- column 5 if -->
+                                            <td>
+                                            <div *ngIf="base.isCurrent; else elseUpdateBlock">
+                                                    <b>Current <span class="badge">{{base.leaverYear}}</span></b>
+                                                 </div>   
+                                                 <ng-template #elseUpdateBlock>
+                                                        <a [routerLink]="['/surveyBase',base.id]" class="col-md-8" >Copy
+                                       
+                                                        </a>
+                     
+                                                 </ng-template> 
+                                            </td>
+
+                                        </tr>
+									 </ng-container>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                          
+                        </div>
+                    </div> 
+    </div>
+    <tsf-footer></tsf-footer>
+</div>
